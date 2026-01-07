@@ -168,12 +168,12 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
 </footer>
 
 <script>
-// Show animated thank-you overlay ONLY after submission
+// Handle Getform submission and show thank-you overlay
 const form = document.getElementById("loanForm");
 const overlay = document.getElementById("successOverlay");
 
 form.addEventListener("submit", function(e){
-  e.preventDefault(); // prevent default submission
+  e.preventDefault();
   fetch(form.action, {
     method: "POST",
     body: new FormData(form),

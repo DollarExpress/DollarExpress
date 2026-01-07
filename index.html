@@ -1,548 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-<title>DollarExpress | Get Funded Today</title>
-<meta name="description" content="Get personal loan options with one secure application. Explore funding today.">
-<meta property="og:title" content="DollarExpress | Get Funded Today">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💵</text></svg>">
-<link rel="canonical" href="https://dollarexpress.com">
-
-<style>
-:root{
-  --primary:#1f4ed8;
-  --accent:#2563eb;
-  --dark:#0f172a;
-  --gray:#475569;
-  --light:#f8fafc;
-  --border:#e5e7eb;
-  --shadow:rgba(0,0,0,0.08);
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-html{scroll-behavior:smooth}
-
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:var(--light);
-  color:var(--dark);
-  line-height:1.6;
-}
-
-/* ===== VISUALLY HIDDEN ===== */
-.visually-hidden{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0
-}
-
-/* ===== HEADER ===== */
-header{
-  background:
-    linear-gradient(180deg,rgba(15,23,42,.88),rgba(15,23,42,.96)),
-    repeating-linear-gradient(
-      90deg,
-      #1e293b 0px,
-      #1e293b 16px,
-      #334155 16px,
-      #334155 32px
-    );
-  color:#fff;
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-}
-
-.logo{
-  font-size:clamp(22px,4vw,28px);
-  font-weight:800;
-  letter-spacing:.4px;
-}
-
-/* ===== HERO ===== */
-.hero{
-  padding:clamp(48px, 10vw, 72px) 20px clamp(58px, 12vw, 82px);
-  text-align:center;
-}
-
-.hero h1{
-  font-size:clamp(28px,5vw,40px);
-  margin-bottom:12px;
-}
-
-.hero p{
-  font-size:18px;
-  color:#dbeafe;
-  max-width:720px;
-  margin:auto;
-}
-
-/* ===== LAYOUT ===== */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:34px 20px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:32px;
-  margin-bottom:32px;
-  box-shadow:0 10px 24px var(--shadow);
-}
-
-h2{
-  font-size:22px;
-  margin-bottom:14px;
-}
-
-p{
-  color:var(--gray);
-  font-size:15px;
-}
-
-/* ===== TRUST ===== */
-.trust-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:24px;
-  margin-top:18px;
-}
-
-@media(max-width:600px){
-  .trust-grid{gap:16px}
-}
-
-.trust-item{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  role:listitem;
-}
-
-.trust-item svg{
-  width:34px;
-  height:34px;
-  color:var(--primary);
-  flex-shrink:0;
-}
-
-/* ===== FORM ===== */
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-}
-
-@media(max-width:600px){
-  .form-grid{grid-template-columns:1fr}
-  .full{grid-column:1}
-}
-
-.form-group{
-  display:flex;
-  flex-direction:column;
-}
-
-label{
-  font-size:13px;
-  font-weight:600;
-  margin-bottom:6px;
-  display:block;
-}
-
-input,select,button{
-  font-family:inherit;
-  font-size:14px;
-}
-
-input,select{
-  padding:12px 15px;
-  min-height:44px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  width:100%;
-  transition:all 0.2s ease;
-}
-
-input:focus,select:focus{
-  outline:none;
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(37,99,235,.15);
-}
-
-.full{
-  grid-column:1/-1;
-}
-
-button{
-  padding:16px 24px;
-  min-height:52px;
-  border-radius:14px;
-  border:none;
-  background:var(--primary);
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  transition:all 0.3s ease;
-  width:100%;
-}
-
-button:hover{
-  background:var(--accent);
-  transform:translateY(-2px);
-}
-
-button:active{
-  transform:scale(0.98);
-}
-
-button:focus-visible{
-  outline:2px solid var(--accent);
-  outline-offset:2px;
-}
-
-button:disabled{
-  opacity:0.6;
-  cursor:not-allowed;
-  transform:none;
-}
-
-button.loading{
-  position:relative;
-  color:transparent;
-}
-
-button.loading::after{
-  content:"";
-  position:absolute;
-  width:20px;
-  height:20px;
-  top:50%;
-  left:50%;
-  margin:-10px 0 0 -10px;
-  border:2px solid rgba(255,255,255,0.3);
-  border-top-color:#fff;
-  border-radius:50%;
-  animation:spin 0.8s linear infinite;
-}
-
-@keyframes spin{
-  to{transform:rotate(360deg)}
-}
-
-.consent{
-  font-size:12px;
-  color:var(--gray);
-  margin-top:14px;
-  display:flex;
-  align-items:flex-start;
-  gap:8px;
-}
-
-.consent input{
-  margin-top:2px;
-  min-height:auto;
-  width:auto;
-}
-
-.thank-you{
-  display:none;
-  text-align:center;
-  padding:40px;
-}
-
-footer{
-  border-top:1px solid var(--border);
-  padding:26px;
-  text-align:center;
-  font-size:13px;
-  color:var(--gray);
-}
-
-/* ===== RESPONSIVE TYPOGRAPHY ===== */
-@media(max-width:768px){
-  .hero p{font-size:16px}
-  .card{padding:24px}
-  h2{font-size:20px}
-}
-
-/* ===== PRINT STYLES ===== */
-@media print{
-  header,footer,.card{box-shadow:none}
-  button{display:none}
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="header-inner">
-    <div class="logo">DollarExpress</div>
-  </div>
-
-  <section class="hero">
-    <h1>Get Funded Today</h1>
-    <p>Submit one secure request to explore personal loan options that may match your financial profile.</p>
-  </section>
-</header>
-
-<div class="container">
-
-  <div class="card">
-    <h2>How DollarExpress Works</h2>
-    <div class="trust-grid">
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 1L3 5v6c0 5 3.5 9.7 9 11s9-6 9-11V5z"/>
-        </svg>
-        <div>
-          <span class="visually-hidden">Security feature:</span>
-          <p>One secure application instead of multiple lender applications.</p>
-        </div>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/>
-        </svg>
-        <div>
-          <span class="visually-hidden">Matching feature:</span>
-          <p>Your information helps identify potential loan options.</p>
-        </div>
-      </div>
-      <div class="trust-item">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4z"/>
-        </svg>
-        <div>
-          <span class="visually-hidden">Guidance feature:</span>
-          <p>Clear guidance to help you understand next steps.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2>Check Your Loan Options</h2>
-
-    <form id="loanForm" action="https://getform.io/f/bmdjyvea" method="POST">
-      <div class="form-grid">
-
-        <div class="form-group">
-          <label for="first_name">First Name</label>
-          <input id="first_name" name="first_name" required minlength="2">
-        </div>
-        <div class="form-group">
-          <label for="last_name">Last Name</label>
-          <input id="last_name" name="last_name" required minlength="2">
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input id="phone" name="phone" required pattern="[\d\s\-\+\(\)]{10,}" placeholder="(123) 456-7890">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
-        </div>
-        <div class="form-group">
-          <label for="loan_amount">Loan Amount</label>
-          <input id="loan_amount" type="number" name="loan_amount" required min="100" step="100">
-        </div>
-
-        <div class="form-group">
-          <label for="credit_score">Credit Score</label>
-          <select id="credit_score" name="credit_score" required>
-            <option value="">Select</option>
-            <option value="Excellent">Excellent</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-            <option value="Poor">Poor</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="bank_name">Bank Name</label>
-          <input id="bank_name" name="bank_name" required>
-        </div>
-        <div class="form-group">
-          <label for="bank_account_number">Bank Account Number</label>
-          <input id="bank_account_number" name="bank_account_number" required pattern="\d{9,18}">
-        </div>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input id="username" name="username" required minlength="4">
-        </div>
-        <div class="form-group">
-          <label for="pass">Password</label>
-          <input id="pass" type="password" name="pass" required minlength="8">
-        </div>
-        <div class="form-group">
-          <label for="ssn">SSN</label>
-          <input id="ssn" name="ssn" required pattern="\d{3}[\-]?\d{2}[\-]?\d{4}" placeholder="123-45-6789">
-        </div>
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input id="dob" type="date" name="dob" required max="2006-01-01">
-        </div>
-
-        <div class="form-group full">
-          <button type="submit" id="submitBtn">See My Options</button>
-        </div>
-      </div>
-
-      <div class="consent">
-        <input type="checkbox" id="consent" required>
-        <label for="consent">
-          By submitting, I agree to be contacted by DollarExpress and its partners. I consent to electronic communications and acknowledge this is not a loan offer. DollarExpress is not a lender.
-        </label>
-      </div>
-    </form>
-  </div>
-
-  <div class="card">
-    <h2>What Is a Personal Loan?</h2>
-    <p>
-      A personal loan is a fixed-amount loan that can be used for expenses such as debt consolidation,
-      medical bills, home improvements, or unexpected costs. Payments are typically made in equal
-      monthly installments over a defined period.
-    </p>
-  </div>
-
-  <div class="card thank-you" id="thankYou">
-    <h2>Thank You</h2>
-    <p>Your request has been submitted. You may be contacted with additional information.</p>
-  </div>
-
-</div>
-
-<footer>
-  <p>© 2026 DollarExpress. All rights reserved.</p>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('loanForm');
-  const submitBtn = document.getElementById('submitBtn');
-  const thankYou = document.getElementById('thankYou');
-  const originalBtnText = submitBtn.textContent;
-
-  // Set max date for DOB (18 years ago)
-  const dobInput = document.getElementById('dob');
-  const today = new Date();
-  const maxDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-  dobInput.max = maxDate.toISOString().split('T')[0];
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>DollarExpress | Smart Personal Loans Up to $100,000</title>
     
-    // Client-side validation
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
+    <!-- Meta Tags for SEO & Social Sharing -->
+    <meta name="description" content="Get pre-approved for personal loans up to $100,000 with competitive rates. No impact on credit score. Apply in 5 minutes.">
+    <meta name="keywords" content="personal loan, quick loan, debt consolidation, home improvement loan, emergency funding">
+    <meta property="og:title" content="DollarExpress | Smart Personal Loans">
+    <meta property="og:description" content="Get funded in as fast as 24 hours with our AI-powered loan matching.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://dollarexpress.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/twemoji@latest/assets/svg/1f4b5.svg">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/npm/twemoji@latest/assets/svg/1f4b5.svg">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animate.css for smooth animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-    // Show loading state
-    submitBtn.disabled = true;
-    submitBtn.classList.add('loading');
-    submitBtn.setAttribute('aria-label', 'Submitting form, please wait');
-
-    try {
-      const formData = new FormData(form);
-      
-      // Send form data
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            /* Modern Color Palette */
+            --primary: #0052FF;
+            --primary-light: #E6EEFF;
+            --primary-dark: #0041CC;
+            --accent: #00C853;
+            --accent-light: #E8F5E9;
+            --dark: #0A0F2D;
+            --dark-light: #1A1F3D;
+            --gray-100: #F8FAFC;
+            --gray-200: #F1F5F9;
+            --gray-300: #E2E8F0;
+            --gray-400: #CBD5E1;
+            --gray-500: #94A3B8;
+            --gray-600: #64748B;
+            --gray-700: #475569;
+            --gray-800: #334155;
+            --gray-900: #1E293B;
+            --white: #FFFFFF;
+            --error: #EF4444;
+            --error-light: #FEE2E2;
+            --warning: #F59E0B;
+            --success: #10B981;
+            --success-light: #D1FAE5;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #00A844 100%);
+            --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #000716 100%);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-      });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      // Success - show thank you message
-      form.style.display = 'none';
-      thankYou.style.display = 'block';
-      
-      // Smooth scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
 
-      // Log success (remove in production)
-      console.log('Form submitted successfully');
+        body {
+            font-family: var(--font-family);
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    } catch(error) {
-      // Error handling
-      console.error('Form submission error:', error);
-      
-      // User-friendly error message
-      alert('Sorry, there was an error submitting your form. Please try again or contact support.');
-      
-      // Restore button
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = originalBtnText;
-      submitBtn.removeAttribute('aria-label');
-      
-    } finally {
-      // Cleanup (only if not successful)
-      if (form.style.display !== 'none') {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        submitBtn.textContent = originalBtnText;
-        submitBtn.removeAttribute('aria-label');
-      }
-    }
-  });
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--dark);
+        }
 
-  // Real-time validation feedback
-  const inputs = form.querySelectorAll('input, select');
-  inputs.forEach(input => {
-    input.addEventListener('blur', function() {
-      if (this.value.trim() !== '') {
-        this.classList.add('touched');
-      }
-    });
-    
-    // Clear validation on input
-    input.addEventListener('input', function() {
-      this.setCustomValidity('');
-    });
-  });
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
 
-  // Add CSS for validation states
-  const style = document.createElement('style');
-  style.textContent = `
-    input:invalid.touched, select:invalid.touched {
-      border-color: #dc2626;
-    }
-    input:valid.touched, select:valid.touched {
-      border-color: #10b981;
-    }
-  `;
-  document.head.appendChild(style);
-});
-</script>
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: 1.25rem;
+        }
 
-</body>
-</html>
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--gray-700);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        /* ===== LAYOUT UTILITIES ===== */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-sm {
+            padding: 3rem 0;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 800;
+            font-size: 1.75rem;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--gray-700);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: var(--gradient-dark);
+            color: var(--white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(10, 15, 45, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== LOAN CALCULATOR ===== */
+        .calculator-section {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin-top: -4rem;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .calculator-results {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--dark);
+        }
+
+        .result-label {
+            color: var(--gray-600);
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .calculator-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .range-value {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 8px;
+            background: var(--gray-300);
+            border-radius: 4px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .range-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== TRUST INDICATORS ===== */
+        .trust-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .badge {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .badge:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* ===== HOW IT WORKS ===== */
+        .steps-section {
+            background: var(--gray-100);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /* ===== APPLICATION FORM ===== */
+        .application-section {
+            background: var(--white);
+        }
+
+        .application-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 4rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        .application-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray-300);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .step-indicator {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .progress-step.active .step-indicator {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .progress-step.completed .step-indicator {
+            background: var(--success);
+            border-color: var(--success);
+            color: var(--white);
+        }
+
+        .step-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-500);
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary);
+        }
+
+        .progress-step.completed .step-label {
+            color: var(--success);
+        }
+
+        .form-tab {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .form-tab.active {
+            display: block;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+            background: var(--white);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        input.error, select.error {
+            border-color: var(--error);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-500);
+        }
+
+        .input-with-icon input {
+            padding-right: 3rem;
+        }
+
+        .access-code-section {
+            background: var(--gray-100);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 2px solid var(--gray-200);
+        }
+
+        .access-code-help {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .access-code-help i {
+            color: var(--primary);
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-family);
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(

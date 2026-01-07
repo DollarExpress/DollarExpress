@@ -23,9 +23,12 @@ label {font-weight:600;margin-bottom:6px;display:block;}
 input, select, textarea {width:100%;padding:14px;border-radius:8px;border:1px solid #ddd;font-size:16px;}
 textarea {resize:vertical;}
 input:focus, select:focus, textarea:focus {outline:none;border-color:#1a3a8f;}
-.submit-btn {width:100%;padding:18px;border:none;border-radius:8px;background:linear-gradient(135deg,#4cd964,#2dcc52);font-size:18px;font-weight:bold;color:#fff;cursor:pointer;}
-.submit-btn:hover {opacity:.9;}
-.success-message {display:none;margin-top:20px;background:#4cd964;padding:20px;color:white;border-radius:8px;text-align:center;}
+.submit-btn {width:100%;padding:18px;border:none;border-radius:8px;background:linear-gradient(135deg,#4cd964,#2dcc52);font-size:18px;font-weight:bold;color:#fff;cursor:pointer;transition:0.3s;}
+.submit-btn:hover {opacity:.9;transform:translateY(-2px);}
+.success-overlay {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000;animation:fadeIn 0.6s ease-out;text-align:center;padding:20px;}
+.success-overlay h2 {font-size:36px;margin-bottom:20px;}
+.success-overlay p {font-size:20px;max-width:600px;line-height:1.5;}
+@keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
 footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
 .disclaimer {background:#2a2a2a;padding:20px;margin-top:20px;font-size:12px;line-height:1.5;}
 .reviews {padding:60px 0;background:white;}
@@ -48,7 +51,7 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
     <h2>Get Your Personal Loan Fast</h2>
     <p>Approval in minutes • Get funded same day</p>
     <div class="apr-badge">7.59% APR Starting</div>
-    <p>Military-grade encryption protects your information</p>
+    <p>Military-grade encryption & secure identity verification</p>
   </div>
 </section>
 
@@ -57,10 +60,8 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
     <div class="form-container">
       <h2 style="text-align:center;margin-bottom:20px;color:#1a3a8f;">Apply for Your Loan</h2>
 
-      <form name="loanForm" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="loanForm">
-        <p style="display:none;"><label>Don't fill this if you're human: <input name="bot-field"></label></p>
-
+      <!-- Getform integrated form -->
+      <form id="loanForm" action="https://getform.io/f/YOUR-FORM-ENDPOINT" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
@@ -124,15 +125,20 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
         </div>
 
         <p style="font-size:13px;color:#666;margin-bottom:10px;">
-          🔒 Your information is encrypted using military-grade encryption. SSN is used only for identity verification.
+          🔒 Your information is encrypted using military-grade security. All personal data is securely stored and never shared with third parties without consent. Identity verification protects against fraud.
         </p>
 
         <button class="submit-btn" type="submit">Get Funded Now</button>
-        <div class="success-message" id="successMessage">✅ Application submitted successfully! We’ll contact you shortly.</div>
       </form>
     </div>
   </div>
 </section>
+
+<!-- Success Overlay -->
+<div class="success-overlay" id="successOverlay">
+  <h2>Thank You!</h2>
+  <p>Your application has been submitted successfully. Our loan specialists will contact you within 24 hours. Sit back and relax while we get you funded!</p>
+</div>
 
 <section class="reviews">
   <div class="container">
@@ -162,12 +168,19 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
 </footer>
 
 <script>
-// Show success message on submit
-const form = document.querySelector('form[name="loanForm"]');
+// Show animated thank-you overlay when form is submitted
+const form = document.getElementById("loanForm");
+const overlay = document.getElementById("successOverlay");
+
 form.addEventListener("submit", function(e){
+  e.preventDefault(); // prevent actual page reload
+  overlay.style.display = "flex";
+  overlay.scrollIntoView({behavior:"smooth"});
+  form.reset();
+  // Hide overlay after 6 seconds
   setTimeout(() => {
-    document.getElementById("successMessage").style.display = "block";
-  }, 100);
+    overlay.style.display = "none";
+  }, 6000);
 });
 </script>
 

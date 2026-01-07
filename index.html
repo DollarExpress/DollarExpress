@@ -25,7 +25,7 @@ textarea {resize:vertical;}
 input:focus, select:focus, textarea:focus {outline:none;border-color:#1a3a8f;}
 .submit-btn {width:100%;padding:18px;border:none;border-radius:8px;background:linear-gradient(135deg,#4cd964,#2dcc52);font-size:18px;font-weight:bold;color:#fff;cursor:pointer;transition:0.3s;}
 .submit-btn:hover {opacity:.9;transform:translateY(-2px);}
-.success-overlay {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000;animation:fadeIn 0.6s ease-out;text-align:center;padding:20px;}
+.success-overlay {position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);color:white;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000;animation:fadeIn 0.6s ease-out;text-align:center;padding:20px;display:none;}
 .success-overlay h2 {font-size:36px;margin-bottom:20px;}
 .success-overlay p {font-size:20px;max-width:600px;line-height:1.5;}
 @keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
@@ -134,12 +134,6 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
   </div>
 </section>
 
-<!-- Success Overlay -->
-<div class="success-overlay" id="successOverlay">
-  <h2>Thank You!</h2>
-  <p>Your application has been submitted successfully. Our loan specialists will contact you within 24 hours. Sit back and relax while we get you funded!</p>
-</div>
-
 <section class="reviews">
   <div class="container">
     <h2 style="text-align:center;color:#1a3a8f;margin-bottom:40px;">What Our Clients Say</h2>
@@ -168,20 +162,43 @@ footer {background:#1a1a1a;color:#ccc;padding:40px 0;text-align:center;}
 </footer>
 
 <script>
-// Show animated thank-you overlay when form is submitted
+// Show animated thank-you overlay ONLY after submission
 const form = document.getElementById("loanForm");
-const overlay = document.getElementById("successOverlay");
 
 form.addEventListener("submit", function(e){
-  e.preventDefault(); // prevent actual page reload
+  e.preventDefault(); // prevent default submission for demo
+  // Optionally, here you can submit the form to Getform using fetch
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { "Accept": "application/json" }
+  }).then(response => {
+    if(response.ok){
+      form.reset();
+      showThankYou();
+    } else {
+      alert("Submission failed. Please try again.");
+    }
+  });
+});
+
+function showThankYou(){
+  // Create overlay dynamically
+  const overlay = document.createElement("div");
+  overlay.className = "success-overlay";
+  overlay.innerHTML = `
+    <h2>Thank You!</h2>
+    <p>Our loan officer will be in touch with you soon.</p>
+  `;
+  document.body.appendChild(overlay);
   overlay.style.display = "flex";
   overlay.scrollIntoView({behavior:"smooth"});
-  form.reset();
-  // Hide overlay after 6 seconds
+
   setTimeout(() => {
     overlay.style.display = "none";
+    overlay.remove(); // remove overlay from DOM after 6 seconds
   }, 6000);
-});
+}
 </script>
 
 </body>

